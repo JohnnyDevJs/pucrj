@@ -1,8 +1,18 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Montserrat, Gelasio } from 'next/font/google'
+import { Bar } from '@/components/Bar'
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+})
+
+const gelasio = Gelasio({
+  subsets: ['latin'],
+  weight: '700',
+  variable: '--font-gelasio',
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +25,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt">
+      <body className={`${montserrat.variable} ${gelasio.variable} font-sans`}>
+        <Bar.Root />
+        {children}
+      </body>
     </html>
   )
 }
